@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>用户资料</title>
+</head>
+<body>
+    <h2>用户资料</h2>
+    <p><strong>用户名:</strong> {{ user.username }}</p>
+    <p><strong>邮箱:</strong> {{ user.email }}</p>
+    <!-- 您可以在这里添加更多用户信息 -->
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">注销</button>
+    </form>
+</body>
+</html>
