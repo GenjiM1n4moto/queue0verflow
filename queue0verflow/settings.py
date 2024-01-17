@@ -131,4 +131,13 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # If user is not logged in, redirect to this URL
+# @login_required decorator will use this URL
 LOGIN_URL='/user/login/'
+
+# TODO: change this to your email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'your-email-smtp-host'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email-address'
+EMAIL_HOST_PASSWORD = 'your-email-password'

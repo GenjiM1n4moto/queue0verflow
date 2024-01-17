@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Django App{% endblock %}</title>
+    <!-- 在这里添加 CSS 文件 -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <!-- 在这里添加头部内容，例如导航栏 -->
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- 主要内容将在这里展示 -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- 在这里添加页脚内容 -->
+        <p>&copy; 2024 My Django App</p>
+    </footer>
+
+    <!-- 在这里添加 JavaScript 文件 -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

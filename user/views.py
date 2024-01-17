@@ -38,3 +38,20 @@ def logout_view(request):
 @login_required
 def profile_view(request):
     return render(request, 'user/profile.html', {'user': request.user})
+
+@login_required
+def password_reset_view(request):
+    if request.method == 'POST':
+        old_password = request.POST.get('old_password')
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('comfirm_password')
+        if new_password != confirm_password:
+            messages.error(request, 'Password does not match.')
+        
+        user = authenticate(request, username=request.user.username, password=old_password)
+        if user is not None:
+            user.set_password(new_password)
+            user.save()
+            messages.success(request, 'Password changed successfully.')
+        else:
+            messages.error(request, 'Invalid password.')
